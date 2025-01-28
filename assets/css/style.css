@@ -1519,6 +1519,11 @@ footer{
   .course-card{
     margin: 0px;
   }
+
+  .course-info-section .container {
+    padding: 20px;
+  }
+
 }
 
 /* @media (max-width: 480px) {
