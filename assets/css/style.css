@@ -1448,7 +1448,7 @@ footer{
 }
 
 .slick-prev, .slick-next{
-  display: none
+  display: none !important;
 }
 
 
