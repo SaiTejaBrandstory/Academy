@@ -38,6 +38,7 @@ border-radius: 5px;
 .background-hero{
   background-image: url('../images/banner-image.svg');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 .navbar-brand{
     margin-left: -45px;
