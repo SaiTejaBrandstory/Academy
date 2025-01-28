@@ -16,169 +16,158 @@ faqItems[0].classList.add('active');
 
 
 
+window.onload = function () {
+  const modeButtons = document.querySelectorAll(".learning-mode-btn");
+  const learningImage = document.getElementById("learning-image");
+  const learningPoints = document.getElementById("learning-points");
+
+  if (!modeButtons.length || !learningImage || !learningPoints) {
+      console.error("Elements not found! Check class and ID names.");
+      return;
+  }
+
+  const modes = {
+      "on-site": {
+          image: "assets/images/on-site-learning.svg",
+          points: [
+              "Interactive classroom sessions with industry experts creative learning experience",
+              "Hands-on projects and real-world case studies",
+              "Build connections with fellow students, instructors, and professionals",
+              "Flexible batch schedules to suit your needs",
+          ],
+      },
+      "self-paced": {
+          image: "assets/images/self-paced-learning.svg",
+          points: [
+              "Flexible, online courses designed for self-paced learning",
+              "Access to expert-led video modules and resources",
+              "Access to materials and updates till the course completion",
+              "Virtual support and guidance are available.",
+          ],
+      },
+  };
+
+  // **Preload images for instant switching**
+  Object.values(modes).forEach(mode => new Image().src = mode.image);
+
+  modeButtons.forEach(button => {
+      button.addEventListener("click", function () {
+          modeButtons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const mode = button.dataset.mode;
+          const modeData = modes[mode];
+
+          // **Instant update without flickering**
+          learningImage.src = modeData.image;
+          learningPoints.innerHTML = modeData.points.map(point => `<li>${point}</li>`).join("");
+      });
+  });
+};
+
+
+$(document).ready(function(){
+  $('.certificate-slider').slick({
+    dots: true,  // Enables slick dots (white)
+    infinite: true,  // Infinite loop
+    speed: 500,  // Slide transition speed
+    slidesToShow: 1,  // Only one image visible at a time
+    slidesToScroll: 1,  // Scroll one image at a time
+    fade: true,  // Fade effect between slides
+    cssEase: 'linear',  // Transition ease
+  });
+});
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".btn-course");
-    const courseContent = document.getElementById("course-content");
-  
-    const courseData = {
-      seo: {
-        img: "assets/images/seo.svg",
-        heading: "Search Engine Optimization (SEO)",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Master SEO fundamentals",
-          "Local SEO Strategies",
-          "E-Commerce SEO",
-          "Effective keyword research",
-        ],
-        link: "https://example.com/seo",
-      },
-      sem: {
-        img: "assets/images/sem.svg",
-        heading: "Search Engine Marketing (SEM)",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "PPC marketing",
-          "Mobile App Marketing",
-          "Affiliate Marketing strategies",
-        ],
-        link: "https://example.com/sem",
-      },
-      smm: {
-        img: "assets/images/smm.svg",
-        heading: "Social Media Marketing (SMM)",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Social Media Optimization (SMO)",
-          "Facebook Marketing strategies",
-          "Evolving social media trends",
-        ],
-        link: "https://example.com/smm",
-      },
-      web: {
-        img: "assets/images/web.svg",
-        heading: "Web Analytics",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Google Analytics expertise",
-          "Analytics setup and configuration",
-          "Reporting for performance improvement",
-        ],
-        link: "https://example.com/web",
-      },
-      email: {
-        img: "assets/images/email.svg",
-        heading: "Email Marketing",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Email marketing techniques",
-          "Setting up email accounts",
-          "Analyzing email campaigns for engagement",
-        ],
-        link: "https://example.com/email",
-      },
-      content: {
-        img: "assets/images/content.svg",
-        heading: "Content Marketing",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Internal link structuring",
-          "HTML code cleanup",
-          "Creating effective marketing content",
-        ],
-        link: "https://example.com/content",
-      },
-      inbound: {
-        img: "assets/images/inbound.svg",
-        heading: "Inbound Marketing",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Setting up campaign goals",
-          "Funnel creation and optimization",
-          "Tracking and reporting data",
-        ],
-        link: "https://example.com/inbound",
-      },
-      "e-com": {
-        img: "assets/images/ecom.svg",
-        heading: "E-Commerce Marketing",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Product keyword research",
-          "Inventory management strategies",
-          "Streamlining e-commerce supply chains",
-        ],
-        link: "https://example.com/ecom",
-      },
-      orm: {
-        img: "assets/images/orm.svg",
-        heading: "Online Reputation Management (ORM)",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Managing your brand’s online presence",
-          "Monitoring market trends",
-          "Enhancing and protecting your reputation",
-        ],
-        link: "https://example.com/orm",
-      },
-      affiliate: {
-        img: "assets/images/affiliate.svg",
-        heading: "Affiliate Marketing",
-        duration: "3 Months",
-        mode: "Classroom/Online",
-        points: [
-          "Promoting products through affiliate networks",
-          "Earning commissions and building partnerships",
-        ],
-        link: "https://example.com/affiliate",
-      },
-    };
-  
-    function loadCourseContent(courseKey) {
-      const course = courseData[courseKey];
-      if (!course) return;
-  
-      courseContent.innerHTML = `
-        <img src="${course.img}" alt="${course.heading}" class="img-fluid mb-3">
-        <h3 class="course-card-heading">${course.heading}</h3>
-        <div class="mb-3 mt-4">
-          <i class="fa-regular fa-calendar-check" style="color: #2E63D8;font-size: 20px;"></i> 
-          <span class="course-card-span">${course.duration}</span>
-          <i class="fa-solid fa-graduation-cap" style="margin-left: 40px; color: #2E63D8;font-size: 20px;"></i> 
-          <span class="course-card-span">${course.mode}</span>
-        </div>
-        <ul class="mb-3 course-card-li">
-          ${course.points.map((point) => `<li>${point}</li>`).join("")}
-        </ul>
-        <hr class="course-card-hr">
-        <a href="${course.link}" class="explore-more" target="_blank">Explore More &rarr;</a>
-      `;
-    }
-  
-    loadCourseContent("seo");
-  
-    buttons.forEach((button) => {
-      button.addEventListener("click", function () {
-        buttons.forEach((btn) => btn.classList.remove("active"));
-  
-        this.classList.add("active");
-  
-        const courseKey = this.getAttribute("data-course");
-        loadCourseContent(courseKey);
+  const courses = [
+      { key: "seo", img: "assets/images/seo.svg", title: "Search Engine Optimization (SEO)", duration: "3 Months", mode: "Classroom", points: ["Master SEO fundamentals", "Local SEO Strategies", "E-Commerce SEO", "Effective keyword research"], link: "#" },
+      { key: "sem", img: "assets/images/sem.svg", title: "Search Engine Marketing (SEM)", duration: "3 Months", mode: "Classroom", points: ["PPC marketing", "Mobile App Marketing","Affiliate Marketing strategies"], link: "#" },
+      { key: "smm", img: "assets/images/smm.svg", title: "Social Media Marketing (SMM)", duration: "3 Months", mode: "Classroom", points: ["Social Media Optimization (SMO)", "Facebook Marketing strategies", "Evolving social media trends"], link: "#" },
+      { key: "web", img: "assets/images/web.svg", title: "Web Analytics", duration: "3 Months", mode: "Classroom", points: ["Google Analytics expertise", "Analytics setup and configuration", "Reporting for performance improvement"], link: "#" },
+      { key: "email", img: "assets/images/email.svg", title: "Email Marketing", duration: "3 Months", mode: "Classroom", points: ["Email marketing techniques", "Setting up email accounts", "Analyzing email campaigns for engagement"], link: "#" },
+      { key: "content", img: "assets/images/content.svg", title: "Content Marketing", duration: "3 Months", mode: "Classroom", points: ["Internal link structuring", "HTML code cleanup", "Creating effective marketing content"], link: "#" },
+      { key: "inbound", img: "assets/images/inbound.svg", title: "Inbound Marketing", duration: "3 Months", mode: "Classroom", points: ["Setting up campaign goals", "Funnel creation and optimization", "Tracking and reporting data"], link: "#" },
+      { key: "ecom", img: "assets/images/ecom.svg", title: "E-Commerce Marketing", duration: "3 Months", mode: "Classroom", points: ["Product keyword research", "Inventory management strategies", "Streamlining e-commerce supply chains"], link: "#" },
+      { key: "orm", img: "assets/images/orm.svg", title: "Online Reputation Management (ORM)", duration: "3 Months", mode: "Classroom", points: ["Managing your brand’s online presence", "Monitoring market trends", "Enhancing and protecting your reputation"], link: "#" },
+      { key: "affiliate", img: "assets/images/affiliate.svg", title: "Affiliate Marketing", duration: "3 Months", mode: "Classroom", points: ["Promoting products through affiliate networks", "Earning commissions and building partnerships"], link: "#" }
+  ];
+
+  const courseCarousel = document.getElementById("courseCarousel");
+  const courseImage = document.getElementById("courseImage");
+  const courseTitle = document.getElementById("courseTitle");
+  const courseDuration = document.getElementById("courseDuration");
+  const courseMode = document.getElementById("courseMode");
+  const courseList = document.getElementById("courseList");
+  const courseLink = document.getElementById("courseLink");
+  let activeButton = null;
+
+  function loadCourses() {
+      courseCarousel.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+      courses.forEach((course, index) => {
+          let btn = document.createElement("button");
+          btn.className = "btn btn-course";
+          btn.innerText = course.title;
+          btn.dataset.index = index;
+          btn.addEventListener("click", function () {
+              setActiveButton(this);
+              loadCourseContent(index);
+          });
+          fragment.appendChild(btn);
       });
-    });
-  });
+      courseCarousel.appendChild(fragment);
+  }
+
+  function setActiveButton(button) {
+      if (activeButton) {
+          activeButton.classList.remove("active-btn");
+      }
+      button.classList.add("active-btn");
+      activeButton = button;
+  }
+
+  function loadCourseContent(index) {
+      const course = courses[index];
+      courseImage.src = course.img;
+      courseTitle.textContent = course.title;
+      courseDuration.textContent = course.duration;
+      courseMode.textContent = course.mode;
+      courseList.innerHTML = course.points.map((p) => `<li>${p}</li>`).join("");
+      courseLink.href = course.link;
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => courseCarousel.scrollLeft -= courseCarousel.children[0].offsetWidth);
+  document.getElementById("nextBtn").addEventListener("click", () => courseCarousel.scrollLeft += courseCarousel.children[0].offsetWidth);
   
+
+  loadCourses();
+  if (courseCarousel.children.length > 0) {
+      setActiveButton(courseCarousel.children[0]);
+      loadCourseContent(0);
+  }
+});
+
+
+function setActiveButton(button) {
+  if (activeButton) {
+      activeButton.classList.remove("active-btn");
+  }
+
+  // Prevent click blinking effect
+  button.style.pointerEvents = "none"; // Disable click briefly
+  requestAnimationFrame(() => {
+      button.classList.add("active-btn");
+      button.style.pointerEvents = ""; // Re-enable click
+  });
+
+  activeButton = button;
+}
+
+
+
+
 
 
   document.querySelectorAll('.academy-question').forEach((question) => {
@@ -266,49 +255,3 @@ document.addEventListener("DOMContentLoaded", function () {
   updatePlacementContent(currentIndex);
   
 
-
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const modeButtons = document.querySelectorAll(".learning-mode-btn");
-    const learningImage = document.getElementById("learning-image");
-    const learningPoints = document.getElementById("learning-points");
-  
-    const modes = {
-      "on-site": {
-        image: "assets/images/on-site-learning.svg",
-        points: [
-          "Interactive classroom sessions with industry experts creative learning experience",
-          "Hands-on projects and real-world case studies",
-          "Build connections with fellow students, instructors, and professionals",
-          "Flexible batch schedules to suit your needs",
-        ],
-      },
-      "self-paced": {
-        image: "assets/images/self-paced-learning.svg",
-        points: [
-          "Flexible, online courses designed for self-paced learning",
-          "Access to expert-led video modules and resources",
-          "Access to materials and updates till the course completion",
-          "Virtual support and guidance are available.",
-        ],
-      },
-    };
-  
-    modeButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        modeButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-  
-        const mode = button.dataset.mode;
-        const modeData = modes[mode];
-  
-        learningImage.src = modeData.image;
-  
-        learningPoints.innerHTML = modeData.points
-          .map((point) => `<li>${point}</li>`)
-          .join("");
-      });
-    });
-  });
-  
