@@ -32,8 +32,12 @@ border-radius: 5px;
 }
 .hero-section{
     padding-top: 100px;
-    padding-bottom: 100px;
-    background-image: url('../images/banner.svg');
+    padding-bottom: 50px;
+}
+
+.background-hero{
+  background-image: url('../images/banner.svg');
+  background-repeat: no-repeat;
 }
 .navbar-brand{
     margin-left: -45px;
