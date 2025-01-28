@@ -1091,7 +1091,7 @@ footer{
     }
     .col-lg-1-5 {
         flex: 0 0 33.33%; 
-        max-width: 22%;
+        max-width: 21%;
     }
     .tool-img-container {
         max-width: 130px; 
