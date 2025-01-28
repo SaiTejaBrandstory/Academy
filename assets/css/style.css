@@ -992,7 +992,7 @@ footer{
         margin-top: 50px;
     }
     .learning-content-div {
-        padding: 50px 30px;
+        padding: 30px 30px;
     }
       
       .learning-content-div {
@@ -1522,6 +1522,14 @@ footer{
 
   .course-info-section .container {
     padding: 20px;
+  }
+
+  .btn-learning{
+    padding: 0 !important;
+  }
+
+  .learning-modes-container{
+    padding: 15px !important;
   }
 
 }
