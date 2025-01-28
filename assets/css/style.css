@@ -1515,6 +1515,10 @@ footer{
   #nextBtn {
     padding: 30px 20px 30px 15px;
   }
+
+  .course-card{
+    margin: 0px;
+  }
 }
 
 /* @media (max-width: 480px) {
