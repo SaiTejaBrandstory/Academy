@@ -1261,7 +1261,7 @@ footer{
 .circle-text {
   color: black;
   font-size: 15px;
-  display: inline-block; /* Ensure the text stays on the same line */
+  display: inline; /* Ensure the text stays on the same line */
   line-height: 30px; /* Vertically align the text */
   vertical-align: middle; /* Align text vertically with the circle */
 }
@@ -1275,7 +1275,7 @@ footer{
 
 .course-info-section .container {
   box-shadow: 0px 0px 10px 0px #00000040;
-  padding: 50px 10px 30px;
+  padding: 50px 50px 30px;
 }
 
 .image-box {

@@ -70,13 +70,22 @@ $(document).ready(function(){
   $('.certificate-slider').slick({
     dots: true,  // Enables slick dots (white)
     infinite: true,  // Infinite loop
-    speed: 500,  // Slide transition speed
+    speed: 1000,  // Fade transition speed (1 second)
     slidesToShow: 1,  // Only one image visible at a time
     slidesToScroll: 1,  // Scroll one image at a time
-    fade: true,  // Fade effect between slides
+    autoplay: true,  // Enable auto play
+    autoplaySpeed: 2000,  // Set auto-play speed to 2 seconds (2000ms)
+    fade: true,  // Use fade effect between slides
     cssEase: 'linear',  // Transition ease
+    arrows: false,  // Disable arrows
+    draggable: false,  // Disable mouse drag
+    swipe: false,  // Disable touch swipe
+    touchMove: false,  // Disable touch-based movement
+    focusOnSelect: false,  // Disable focus on select
+    pauseOnHover: false,  // Don't pause when hover
   });
 });
+
 
 
 
