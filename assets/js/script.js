@@ -16,15 +16,14 @@ faqItems[0].classList.add('active');
 
 
 
-// JavaScript to show/hide the bar based on scroll position
 window.addEventListener("scroll", function() {
   var bar = document.getElementById("internshipBar");
   if (window.scrollY > 1000) {
-    bar.style.opacity = "1";  // Fade in
-    bar.style.transform = "translateX(0) rotate(180deg)";  // Slide into view
+    bar.style.opacity = "1";  
+    bar.style.transform = "translateX(0) rotate(180deg)";  
   } else {
-    bar.style.opacity = "0";  // Fade out
-    bar.style.transform = "translateX(100%) rotate(180deg)";  // Slide out
+    bar.style.opacity = "0";  
+    bar.style.transform = "translateX(100%) rotate(180deg)";  
   }
 });
 
@@ -60,7 +59,6 @@ window.onload = function () {
       },
   };
 
-  // **Preload images for instant switching**
   Object.values(modes).forEach(mode => new Image().src = mode.image);
 
   modeButtons.forEach(button => {
@@ -71,7 +69,6 @@ window.onload = function () {
           const mode = button.dataset.mode;
           const modeData = modes[mode];
 
-          // **Instant update without flickering**
           learningImage.src = modeData.image;
           learningPoints.innerHTML = modeData.points.map(point => `<li>${point}</li>`).join("");
       });
@@ -96,8 +93,8 @@ $(document).ready(function(){
     touchMove: false,  
     focusOnSelect: false,  
     pauseOnHover: false,  
-    pauseOnFocus: false,  // Ensure autoplay does not pause on focus
-    pauseOnDotsHover: false  // Ensure autoplay does not pause when hovering over dots
+    pauseOnFocus: false,  
+    pauseOnDotsHover: false  
   });
 });
 
@@ -180,11 +177,10 @@ function setActiveButton(button) {
       activeButton.classList.remove("active-btn");
   }
 
-  // Prevent click blinking effect
-  button.style.pointerEvents = "none"; // Disable click briefly
+  button.style.pointerEvents = "none"; 
   requestAnimationFrame(() => {
       button.classList.add("active-btn");
-      button.style.pointerEvents = ""; // Re-enable click
+      button.style.pointerEvents = ""; 
   });
 
   activeButton = button;
