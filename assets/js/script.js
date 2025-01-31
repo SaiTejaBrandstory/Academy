@@ -16,6 +16,19 @@ faqItems[0].classList.add('active');
 
 
 
+// JavaScript to show/hide the bar based on scroll position
+window.addEventListener("scroll", function() {
+  var bar = document.getElementById("internshipBar");
+  if (window.scrollY > 1000) {
+    bar.style.opacity = "1";  // Fade in
+    bar.style.transform = "translateX(0) rotate(180deg)";  // Slide into view
+  } else {
+    bar.style.opacity = "0";  // Fade out
+    bar.style.transform = "translateX(100%) rotate(180deg)";  // Slide out
+  }
+});
+
+
 window.onload = function () {
   const modeButtons = document.querySelectorAll(".learning-mode-btn");
   const learningImage = document.getElementById("learning-image");
@@ -28,7 +41,7 @@ window.onload = function () {
 
   const modes = {
       "on-site": {
-          image: "assets/images/on-site-learning.svg",
+          image: "assets/images/on-site-learning.webp",
           points: [
               "Interactive classroom sessions with industry experts creative learning experience",
               "Hands-on projects and real-world case studies",
@@ -37,7 +50,7 @@ window.onload = function () {
           ],
       },
       "self-paced": {
-          image: "assets/images/self-paced-learning.svg",
+          image: "assets/images/self-paced-learning.webp",
           points: [
               "Flexible, online courses designed for self-paced learning",
               "Access to expert-led video modules and resources",
@@ -68,39 +81,42 @@ window.onload = function () {
 
 $(document).ready(function(){
   $('.certificate-slider').slick({
-    dots: true,  // Enables slick dots (white)
-    infinite: true,  // Infinite loop
-    speed: 1000,  // Fade transition speed (1 second)
-    slidesToShow: 1,  // Only one image visible at a time
-    slidesToScroll: 1,  // Scroll one image at a time
-    autoplay: true,  // Enable auto play
-    autoplaySpeed: 2000,  // Set auto-play speed to 2 seconds (2000ms)
-    fade: true,  // Use fade effect between slides
-    cssEase: 'linear',  // Transition ease
-    arrows: false,  // Disable arrows
-    draggable: false,  // Disable mouse drag
-    swipe: false,  // Disable touch swipe
-    touchMove: false,  // Disable touch-based movement
-    focusOnSelect: false,  // Disable focus on select
-    pauseOnHover: false,  // Don't pause when hover
+    dots: false,  
+    infinite: true,  
+    speed: 1000,  
+    slidesToShow: 1,  
+    slidesToScroll: 1,  
+    autoplay: true,  
+    autoplaySpeed: 2000,  
+    fade: true,  
+    cssEase: 'linear',  
+    arrows: false,  
+    draggable: false,  
+    swipe: false,  
+    touchMove: false,  
+    focusOnSelect: false,  
+    pauseOnHover: false,  
+    pauseOnFocus: false,  // Ensure autoplay does not pause on focus
+    pauseOnDotsHover: false  // Ensure autoplay does not pause when hovering over dots
   });
 });
 
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const courses = [
-      { key: "seo", img: "assets/images/seo.svg", title: "Search Engine Optimization (SEO)", duration: "3 Months", mode: "Classroom", points: ["Master SEO fundamentals", "Local SEO Strategies", "E-Commerce SEO", "Effective keyword research"], link: "#" },
-      { key: "sem", img: "assets/images/sem.svg", title: "Search Engine Marketing (SEM)", duration: "3 Months", mode: "Classroom", points: ["PPC marketing", "Mobile App Marketing","Affiliate Marketing strategies"], link: "#" },
-      { key: "smm", img: "assets/images/smm.svg", title: "Social Media Marketing (SMM)", duration: "3 Months", mode: "Classroom", points: ["Social Media Optimization (SMO)", "Facebook Marketing strategies", "Evolving social media trends"], link: "#" },
-      { key: "web", img: "assets/images/web.svg", title: "Web Analytics", duration: "3 Months", mode: "Classroom", points: ["Google Analytics expertise", "Analytics setup and configuration", "Reporting for performance improvement"], link: "#" },
-      { key: "email", img: "assets/images/email.svg", title: "Email Marketing", duration: "3 Months", mode: "Classroom", points: ["Email marketing techniques", "Setting up email accounts", "Analyzing email campaigns for engagement"], link: "#" },
-      { key: "content", img: "assets/images/content.svg", title: "Content Marketing", duration: "3 Months", mode: "Classroom", points: ["Internal link structuring", "HTML code cleanup", "Creating effective marketing content"], link: "#" },
-      { key: "inbound", img: "assets/images/inbound.svg", title: "Inbound Marketing", duration: "3 Months", mode: "Classroom", points: ["Setting up campaign goals", "Funnel creation and optimization", "Tracking and reporting data"], link: "#" },
-      { key: "ecom", img: "assets/images/ecom.svg", title: "E-Commerce Marketing", duration: "3 Months", mode: "Classroom", points: ["Product keyword research", "Inventory management strategies", "Streamlining e-commerce supply chains"], link: "#" },
-      { key: "orm", img: "assets/images/orm.svg", title: "Online Reputation Management (ORM)", duration: "3 Months", mode: "Classroom", points: ["Managing your brand’s online presence", "Monitoring market trends", "Enhancing and protecting your reputation"], link: "#" },
-      { key: "affiliate", img: "assets/images/affiliate.svg", title: "Affiliate Marketing", duration: "3 Months", mode: "Classroom", points: ["Promoting products through affiliate networks", "Earning commissions and building partnerships"], link: "#" }
+      { key: "seo", img: "assets/images/seo.webp", title: "Search Engine Optimization (SEO)", duration: "3 Months", mode: "Classroom", points: ["Master SEO fundamentals", "Local SEO Strategies", "E-Commerce SEO", "Effective keyword research"], link: "#" },
+      { key: "sem", img: "assets/images/sem.webp", title: "Search Engine Marketing (SEM)", duration: "3 Months", mode: "Classroom", points: ["PPC marketing", "Mobile App Marketing","Affiliate Marketing strategies"], link: "#" },
+      { key: "smm", img: "assets/images/smm.webp", title: "Social Media Marketing (SMM)", duration: "3 Months", mode: "Classroom", points: ["Social Media Optimization (SMO)", "Facebook Marketing strategies", "Evolving social media trends"], link: "#" },
+      { key: "web", img: "assets/images/web.webp", title: "Web Analytics", duration: "3 Months", mode: "Classroom", points: ["Google Analytics expertise", "Analytics setup and configuration", "Reporting for performance improvement"], link: "#" },
+      { key: "email", img: "assets/images/email.webp", title: "Email Marketing", duration: "3 Months", mode: "Classroom", points: ["Email marketing techniques", "Setting up email accounts", "Analyzing email campaigns for engagement"], link: "#" },
+      { key: "content", img: "assets/images/content.webp", title: "Content Marketing", duration: "3 Months", mode: "Classroom", points: ["Internal link structuring", "HTML code cleanup", "Creating effective marketing content"], link: "#" },
+      { key: "inbound", img: "assets/images/inbound.webp", title: "Inbound Marketing", duration: "3 Months", mode: "Classroom", points: ["Setting up campaign goals", "Funnel creation and optimization", "Tracking and reporting data"], link: "#" },
+      { key: "ecom", img: "assets/images/ecom.webp", title: "E-Commerce Marketing", duration: "3 Months", mode: "Classroom", points: ["Product keyword research", "Inventory management strategies", "Streamlining e-commerce supply chains"], link: "#" },
+      { key: "orm", img: "assets/images/orm.webp", title: "Online Reputation Management (ORM)", duration: "3 Months", mode: "Classroom", points: ["Managing your brand’s online presence", "Monitoring market trends", "Enhancing and protecting your reputation"], link: "#" },
+      { key: "affiliate", img: "assets/images/affiliate.webp", title: "Affiliate Marketing", duration: "3 Months", mode: "Classroom", points: ["Promoting products through affiliate networks", "Earning commissions and building partnerships"], link: "#" }
   ];
 
   const courseCarousel = document.getElementById("courseCarousel");

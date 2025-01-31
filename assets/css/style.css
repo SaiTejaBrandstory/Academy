@@ -216,7 +216,7 @@ h1{
     font-size: 24px;
     line-height: 33.6px;
     color: #ffffff;
-    padding: 40px 0;
+    padding: 20px 0;
   }
   .btn-learning{
     background: rgba(0, 133, 255, 0.2);
@@ -1451,8 +1451,86 @@ footer{
   display: none !important;
 }
 
+.internship-section {
+  background: rgba(58, 160, 254, 1);
+}
 
+.internship-heading {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 33.6px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
 
+.internship-input {
+  background: #ffffff !important;
+  border: none;
+  padding: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  border-radius: 0 !important; /* No border-radius (sharp edges) */
+}
+
+/* Placeholder Text Styling */
+.internship-input::placeholder {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(157, 157, 156, 1);
+}
+
+.internship-btn {
+  background: rgba(46, 99, 216, 1) !important;
+  color: #ffffff !important;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  transition: all 0.3s ease;
+  border-radius: 0 !important; /* No border-radius (sharp edges) */
+}
+
+.internship-btn:hover {
+  background: #ffffff !important;
+  color: rgba(46, 99, 216, 1) !important;
+}
+
+.fixed-internship-bar {
+  position: fixed;
+  right: 0;
+  top: 30%; /* Center vertically on the screen */
+  transform: translateY(-50%) rotate(180deg); /* Adjust for exact centering */
+  background: rgba(232, 58, 37, 1);
+  color: #ffffff;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: right; /* Align text to the right */
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  padding: 15px;
+  writing-mode: vertical-rl; /* Rotate text vertically */
+  text-orientation: mixed;
+  z-index: 999;
+  cursor: pointer;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
 
 /* Small screen adjustments */
 @media (max-width: 768px) {
@@ -1530,6 +1608,11 @@ footer{
 
   .learning-modes-container{
     padding: 15px !important;
+  }
+
+  .fixed-internship-bar {
+    font-size: 10px;
+    padding: 8px 4px;
   }
 
 }
